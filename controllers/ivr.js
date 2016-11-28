@@ -40,6 +40,7 @@ module.exports.selectTeam = function (req, res) {
 	if (team === null) {
 		// redirect the call to the previous twiml
 		twiml.say('Your selection was not valid, please try again')
+		twiml.voice('male','de-DE')
 		twiml.pause({length: 2})
 		twiml.redirect({ method: 'GET' }, 'welcome')
 	} else {
@@ -50,11 +51,14 @@ module.exports.selectTeam = function (req, res) {
 			timeout: 5
 		}, function (node) {
 			node.say('Press any key if you want a callback, if you want to talk to an agent please wait in the line')
+			twiml.voice('male','de-DE')
 		})
 
 		/* create task attributes */
 		var attributes = {
 			say: 'Caller answered IVR with option "' + team.friendlyName + '"',
+			gender:'male',
+			language:'de-DE',
 			channel: 'phone',
 			phone: req.query.From,
 			name: req.query.From,
