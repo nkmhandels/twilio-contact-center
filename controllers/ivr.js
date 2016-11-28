@@ -17,7 +17,7 @@ module.exports.welcome = function (req, res) {
 		numDigits: 1,
 		timeout: 10
 	}, function (node) {
-		node.say(req.configuration.ivr.text)
+		node.say({voice:'woman'},req.configuration.ivr.text)
 	})
 
 	res.setHeader('Content-Type', 'application/xml')
@@ -49,7 +49,7 @@ module.exports.selectTeam = function (req, res) {
 			numDigits: 1,
 			timeout: 5
 		}, function (node) {
-			node.say('Press any key if you want a callback, if you want to talk to an agent please wait in the line')
+			node.say('{voice:'woman'}, 'Welcome to Acme Corporation!')
 		})
 
 		/* create task attributes */
