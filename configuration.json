@@ -12,7 +12,7 @@
 				"digit": 2,
 				"id": "support"
 			}
-			{voice: "alice", language: "de-DE"})
+			{voice: "alice", language: "de-DE"}
 		]
 	},
 	"queues": [
