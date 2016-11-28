@@ -54,7 +54,7 @@ module.exports.selectTeam = function (req, res) {
 
 		/* create task attributes */
 		var attributes = {
-			text: 'Caller answered IVR with option "' + team.friendlyName + '"',
+			text-to-speech: 'Caller answered IVR with option "' + team.friendlyName + '"',
 			channel: 'phone',
 			phone: req.query.From,
 			name: req.query.From,
