@@ -39,7 +39,7 @@ module.exports.selectTeam = function (req, res) {
 	/* the caller pressed a key that does not match any team */
 	if (team === null) {
 		// redirect the call to the previous twiml
-		twiml.say({voice:'woman'}, 'Your selection was not valid, please try again')
+		twiml.say(['voice' => 'alice', 'language' => 'en-GB'], 'Your selection was not valid, please try again')
 				twiml.pause({length: 2})
 		twiml.redirect({ method: 'GET' }, 'welcome')
 	} else {
@@ -49,13 +49,13 @@ module.exports.selectTeam = function (req, res) {
 			numDigits: 1,
 			timeout: 5
 		}, function (node) {
-			node.say({voice:'woman',language:'de-DE'},'Press any key if you want a callback, if you want to talk to an agent please wait in the line')
+			node.say(['voice' => 'alice', 'language' => 'en-GB'],'Press any key if you want a callback, if you want to talk to an agent please wait in the line')
 			
 		})
 
 		/* create task attributes */
 		var attributes = {
-			say:({voice:'woman',language:'de-DE'}, 'Caller answered IVR with option "' + team.friendlyName + '"'),
+			say:(['voice' => 'alice', 'language' => 'en-GB'], 'Caller answered IVR with option "' + team.friendlyName + '"'),
 			gender:'male',
 			language:'de-DE',
 			channel: 'phone',
